@@ -4,6 +4,7 @@
 // Rock beats scissors. Scissors beats paper. Paper beats rock.
 // Five rounds are played.
 
+
 // Computer choice randomly selected via Math.random()
 function getComputerChoice() {
     let computerChoice = Math.random() * 100;
@@ -59,16 +60,39 @@ function playGame() {
     }
 
     // Five round game
-    for (let n = 1; n <= 5; n++) {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
+    //for (let n = 1; n <= 5; n++) {
+    //    let humanSelection = getHumanChoice();
+    //    let computerSelection = getComputerChoice();
 
-        console.log(`Round ${n}:`)
-        console.log(`Computer chose ${computerSelection}.`)
-        console.log(`You chose ${humanSelection}.`)
+    //    console.log(`Round ${n}:`)
+    //    console.log(`Computer chose ${computerSelection}.`)
+    //    console.log(`You chose ${humanSelection}.`)
 
-        playRound(humanSelection, computerSelection);
-    }
+    //    playRound(humanSelection, computerSelection);
+    //}
+
+    // Created a buttons div with the three buttons inside. Event listener on the div instead of
+    // on each button. Figure out which button was clicked, use switch statement to make the call
+    // to PlayRound.
+    const buttons = document.querySelector("#buttons");
+
+    buttons.addEventListener("click", (e) => {
+        let target = e.target;
+
+        switch(target.id) {
+            case "rock":
+                playRound("rock", getComputerChoice());
+                break;
+            
+            case "paper":
+                playRound("paper", getComputerChoice());
+                break;
+
+            case "scissors":
+                playRound("scissors", getComputerChoice());
+                break;
+        }
+    });
 
     // Report the results to the console
     if (humanScore > computerScore) {
