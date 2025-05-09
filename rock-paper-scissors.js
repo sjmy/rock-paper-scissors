@@ -1,8 +1,7 @@
 // Rock, paper, scissors!
-// Results and messages are found in the Dev Tools Console.
-// User is asked to choose rock, paper, or scissors via prompt. Computer choice randomly chosen.
+// User is asked to choose rock, paper, or scissors via button clicks. Computer choice randomly chosen.
 // Rock beats scissors. Scissors beats paper. Paper beats rock.
-// Five rounds are played.
+// First to five wins.
 
 
 // Computer choice randomly selected via Math.random()
@@ -16,13 +15,6 @@ function getComputerChoice() {
     } else {
         return "scissors";
     };
-};
-
-// Human choice entered via prompt, converted to lowercase
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, paper, or scissors?");
-
-    return humanChoice.toLowerCase();
 };
 
 function reportScore(roundsPlayed, humanScore, computerScore) {
